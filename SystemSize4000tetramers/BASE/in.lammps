@@ -1,0 +1,31 @@
+units		lj	
+atom_style	molecular
+boundary        p p p   
+#########################################################
+read_data	initialconfig.dat
+include		forcefield-base.dat
+neigh_modify 	exclude molecule all
+#########################################################
+
+############THERMO AND TIME STEP#########################
+timestep	0.001
+thermo          1000
+##########################################################
+
+###########SET TEMPERATURE################################
+variable 	T equal TEMP
+velocity	all create ${T} 7238765
+##########################################################
+compute         ee all zeta/ee
+compute         ave all zeta/ave
+compute         zatom all zeta/atom
+thermo_style    custom step temp press density pe ke lx ly lz c_ee c_ave ebond eangle edihed
+thermo_modify   norm no
+restart 	1000000 tetramer.restart
+
+dump            1 all custom 100000 dump.tetramer id mol type x y z ix iy iz c_zatom
+fix             1 all nvt temp ${T} ${T} 0.05
+run             2000000000
+
+write_restart   tetramer.restart
+write_data      tetramer.data
