@@ -2,6 +2,8 @@
 
 ### Authors: Pablo M. Piaggi, Roberto Car, Frank H. Stillinger, Pablo G. Debenedetti
 
+[![DataSpace](https://img.shields.io/badge/DataSpace-88435%2Fdsp01gt54kr255-orange)](https://doi.org/10.34770/aby7-r955)
+
 Analysis scripts and input files to reproduce simulations of manuscript "Critical behavior in a chiral molecular model" by Piaggi, Car, Stillinger, and Debenedetti.
 Output files are available at [this link](https://doi.org/10.34770/aby7-r955).
 
@@ -10,7 +12,7 @@ Output files are available at [this link](https://doi.org/10.34770/aby7-r955).
   * ```in.lammps```: LAMMPS input file
   * ```in.restart.lammps```: LAMMPS input file for restarts
   * ```initialconfig.dat```: Initial configuration in LAMMPS data format
-  * ```forcefield-base.dat```: Force fields parameters
+  * ```forcefield-base.dat```: Force field parameters
   * ```job.sh```: Slurm submission script
 * ```Clustering```: Clustering script and results:
   * ```cluster.py```: Python script to perform clustering
